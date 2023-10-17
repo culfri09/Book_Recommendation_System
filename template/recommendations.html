@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recommendations</title>
+</head>
+<body>
+    <h1>Recommendations</h1>
+    <ul>
+        {% for book, score in recommendations %}
+            <li>{{ book }} (Similitud: {{ score|floatformat(2) }})
+        {% endfor %}
+    </ul>
+</body>
+</html>
