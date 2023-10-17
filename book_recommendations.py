@@ -40,7 +40,7 @@ def get_recommendations(book_title, num_recommendations=5):
     return recommended_books #List with tuples (title + distance).
 
 '''
----Flask integration--
+---Flask integration---
 '''
 
 app = Flask(__name__, template_folder='./template') #Creates a Flask application named app, and specifies path where the rendered HTML pages are located.
