@@ -7,7 +7,7 @@
     <h1>Recommendations</h1>
     <ul>
         {% for book, score in recommendations %}
-            <li>{{ book }} (Similitud: {{ score|floatformat(2) }})
+            <li>{{ book }} (Similarity: {{ score }})
         {% endfor %}
     </ul>
 </body>
