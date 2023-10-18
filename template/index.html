@@ -7,16 +7,8 @@
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <body>
-    <!-- Write your comments here 
-    <h1>Book Recommendation System</h1>
-    <form action="/recommend" method="post">
-        <label for="book_title">Enter a book title:</label>
-        <input type="text" id="book_title" name="book_title" required>
-        <input type="submit" value="Get Recommendations">
-    </form>-->
-
     <div class="px-4 py-5 my-5 text-center">
-        <img class="d-block mx-auto mb-4" src="/imgs/Website_Logo.png" alt="" width="150" height="150">
+        <img class="d-block mx-auto mb-4" src="{{ url_for('static', filename='imgs/Website_Logo.png') }}" alt="" width="150" height="150">
         <h1 class="display-5 fw-bold text-body-emphasis">Read Radar</h1>
         <div class="col-lg-6 mx-auto">
           <p class="lead mb-4">Welcome to Read Radar, your literary compass in the world of books. Discover, explore, and navigate the endless realms of literature with our expertly curated book recommendations. Our mission is to guide you through the literary landscape, helping you find your next captivating read. Whether you're a seasoned bookworm or a novice explorer, we've got your literary journey covered. Let the stories unfold with Read Radar!</p>
