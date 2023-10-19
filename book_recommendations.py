@@ -34,8 +34,8 @@ def get_recommendations(book_title, num_recommendations=5):
     recommendations = sim_scores[1:num_recommendations+1] #Creates list with the first 5 items of the sim_scores (list with the sorted books by similitude)
     
     #recommended_books = [(df['title'][rec[0]], rec[1]) for rec in recommendations]
-    recommended_books = [(df['title'][rec[0]], df['description'][rec[0]], rec[1]) for rec in recommendations] #Transforms the numbers of the recommendations into strings and adds them to recommendation_books list: book title + description
-    return recommended_books #List with tuples (title + distance).
+    recommended_books = [(df['title'][rec[0]], df['description'][rec[0]], df['author'][rec[0]], df['publishDate'][rec[0]], rec[1]) for rec in recommendations] #Transforms the numbers of the recommendations into strings and adds them to recommendation_books list: book title + description + author + publish date
+    return recommended_books 
 
 '''
 ---Flask integration---
