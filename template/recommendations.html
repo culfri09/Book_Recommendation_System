@@ -6,7 +6,26 @@
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <body>
+      <nav class="navbar navbar-expand-lg bg-body-tertiary rounded" aria-label="Eleventh navbar example">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='imgs/Website_Logo.png') }}" alt="" width="30" height="30"></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+    
+          <div class="collapse navbar-collapse" id="navbarsExample09">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">My Favorites</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
     <div class="text-center">
+        <br>
+        <br>
+        <br>
         <h1 class="display-5 fw-bold text-body-emphasis">Recommendations</h1>
     </div>
     <div class="d-flex flex-column flex-md-row p-4 gap-4 py-md-5 align-items-center justify-content-center">
@@ -15,10 +34,17 @@
             <li class="list-group-item">
                 <h3>{{ book }}, {{ author }} ({{ publishDate }}) </h3>
                 <p>{{ description }}</p>
-                <!-- Uncomment the following line to display the similarity score -->
-                <!-- <p>Similarity: {{ score }}</p> -->
+                 <!--Uncomment the following line to display the similarity score 
+                 <p>Similarity: {{ score }}</p>-->
             </li>
-            {% endfor %}
+            {% endfor %} 
+            <!--<li class="list-group-item">
+                <h3>Animal Farm / 1984, George Orwell, Christopher Hitchens (Introduction) (June 1st 2003)</h3>
+                <p>This edition features George Orwell's best known novels – 1984 and Animal Farm – with an introduction by Christopher Hitchens. In 1984, London is a grim city where Big Brother is always watching you and the Thought Police can practically read your mind.  Winston Smith joins a secret revolutionary organization called The Brotherhood, dedicated to the destruction of the Party. Together with his beloved Julia, he hazards his life in a deadly match against the powers that be.Animal Farm is Orwell's classic satire of the Russian Revolution -- an account of the bold struggle, initiated by the animals, that transforms Mr. Jones's Manor Farm into Animal Farm--a wholly democratic society built on the credo that All Animals Are Created Equal. But are they?</p>
+                <hr>
+                <h3>The Christmas Fix, Lucy Score (Goodreads Author) (December 1st 2017)</h3>
+                <p>This is an alternate cover edition of this book.</p>
+            </li>-->
         </ul>
     </div>
 </body>

@@ -1,10 +1,10 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import linear_kernel
 
 '''
----Recommendation Algorithm---
+#---Recommendation Algorithm---
 '''
 
 # Loads data set into data frame.
@@ -38,7 +38,7 @@ def get_recommendations(book_title, num_recommendations=5):
     return recommended_books 
 
 '''
----Flask integration---
+#---Flask integration---
 '''
 
 app = Flask(__name__, template_folder='./template') #Creates a Flask application named app, and specifies path where the rendered HTML pages are located.
@@ -58,3 +58,6 @@ def recommend():
 #Starts web server, and web application becomes accesible in the specified port.
 if __name__ == '__main__':
     app.run(port=4996)
+
+
+
