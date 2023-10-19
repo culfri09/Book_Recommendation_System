@@ -6,20 +6,20 @@
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <body>
-    </ul>
-    <br>
-    <br>
-    <br>
-    <br>
     <div class="text-center">
-    <h1 class="display-5 fw-bold text-body-emphasis">Recommendations</h1></div>
-    <div class="d-flex flex-column flex-md-row p-4 gap-4 py-md-5 align-items-center justify-content-center">  
+        <h1 class="display-5 fw-bold text-body-emphasis">Recommendations</h1>
+    </div>
+    <div class="d-flex flex-column flex-md-row p-4 gap-4 py-md-5 align-items-center justify-content-center">
         <ul class="list-group list-group-flush">
-            {% for book, score in recommendations %}
-           <li class="list-group-item">{{ book }} <!--(Similarity: {{ score }})-->
-        {% endfor %}
-        </div>         
-        </div>
-      </div>
+            {% for book, description, score in recommendations %}
+            <li class="list-group-item">
+                <h3>{{ book }}</h3>
+                <p>{{ description }}</p>
+                <!-- Uncomment the following line to display the similarity score -->
+                <!-- <p>Similarity: {{ score }}</p> -->
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
 </body>
 </html>

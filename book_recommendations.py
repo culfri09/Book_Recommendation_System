@@ -18,8 +18,6 @@ tfidf_matrix = tfidf_vectorizer.fit_transform(df['description'].fillna('')) # Fi
 # Computes cosine similarities
 cosine_similarities = linear_kernel(tfidf_matrix, tfidf_matrix) # List which contains the distance between ALL the book's descriptions within the matrix. 
 
-#print(type(cosine_similarities))
-
 # Method to obtain the book recommendations. Takes as parameters the book's name and the number of recommendations that will be given. 
 def get_recommendations(book_title, num_recommendations=5):
     book_index = df.index[df['title'] == book_title].tolist() # Finds the index of the book within the list. 
@@ -35,8 +33,8 @@ def get_recommendations(book_title, num_recommendations=5):
     
     recommendations = sim_scores[1:num_recommendations+1] #Creates list with the first 5 items of the sim_scores (list with the sorted books by similitude)
     
-    recommended_books = [(df['title'][rec[0]], rec[1]) for rec in recommendations] #Transforms the numbers of the recommendations into strings and adds them to recommendation_books list.
-    
+    #recommended_books = [(df['title'][rec[0]], rec[1]) for rec in recommendations]
+    recommended_books = [(df['title'][rec[0]], df['description'][rec[0]], rec[1]) for rec in recommendations] #Transforms the numbers of the recommendations into strings and adds them to recommendation_books list: book title + description
     return recommended_books #List with tuples (title + distance).
 
 '''
