@@ -8,20 +8,23 @@
 <body>
       <nav class="navbar navbar-expand-lg bg-body-tertiary rounded" aria-label="Eleventh navbar example">
         <div class="container-fluid">
-          <a class="navbar-brand" href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='imgs/Website_Logo.png') }}" alt="" width="30" height="30"></a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-    
-          <div class="collapse navbar-collapse" id="navbarsExample09">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">My Favorites</a>
-              </li>
-            </ul>
-          </div>
+            <a class="navbar-brand d-flex align-items-center" href="{{ url_for('index') }}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 16 16">
+                    <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5Z"/>
+                </svg>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarsExample09">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">My Favorites</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-      </nav>
+    </nav>
     <div class="text-center">
         <br>
         <br>
@@ -30,21 +33,21 @@
     </div>
     <div class="d-flex flex-column flex-md-row p-4 gap-4 py-md-5 align-items-center justify-content-center">
         <ul class="list-group list-group-flush">
-            {% for book, description, author, publishDate, score in recommendations %}
+            <!--{% for book, description, author, publishDate, score in recommendations %}
             <li class="list-group-item">
                 <h3>{{ book }}, {{ author }} ({{ publishDate }}) </h3>
                 <p>{{ description }}</p>
-                 <!--Uncomment the following line to display the similarity score 
-                 <p>Similarity: {{ score }}</p>-->
+                 Uncomment the following line to display the similarity score 
+                 <p>Similarity: {{ score }}</p>
             </li>
-            {% endfor %} 
-            <!--<li class="list-group-item">
+            {% endfor %} -->
+            <li class="list-group-item">
                 <h3>Animal Farm / 1984, George Orwell, Christopher Hitchens (Introduction) (June 1st 2003)</h3>
                 <p>This edition features George Orwell's best known novels – 1984 and Animal Farm – with an introduction by Christopher Hitchens. In 1984, London is a grim city where Big Brother is always watching you and the Thought Police can practically read your mind.  Winston Smith joins a secret revolutionary organization called The Brotherhood, dedicated to the destruction of the Party. Together with his beloved Julia, he hazards his life in a deadly match against the powers that be.Animal Farm is Orwell's classic satire of the Russian Revolution -- an account of the bold struggle, initiated by the animals, that transforms Mr. Jones's Manor Farm into Animal Farm--a wholly democratic society built on the credo that All Animals Are Created Equal. But are they?</p>
                 <hr>
                 <h3>The Christmas Fix, Lucy Score (Goodreads Author) (December 1st 2017)</h3>
                 <p>This is an alternate cover edition of this book.</p>
-            </li>-->
+            </li>
         </ul>
     </div>
 </body>
