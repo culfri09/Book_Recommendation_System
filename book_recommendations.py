@@ -19,7 +19,7 @@ tfidf_matrix = tfidf_vectorizer.fit_transform(df['description'].fillna('')) # Fi
 cosine_similarities = linear_kernel(tfidf_matrix, tfidf_matrix) # List which contains the distance between ALL the book's descriptions within the matrix. 
 
 # Method to obtain the book recommendations. Takes as parameters the book's name and the number of recommendations that will be given. 
-def get_recommendations(book_title, num_recommendations=5):
+def get_recommendations(book_title, num_recommendations=6):
     book_index = df.index[df['title'] == book_title].tolist() # Finds the index of the book within the list. 
     if not book_index:
         return [] #If title is not within the df, it returns an empty recommendation.
