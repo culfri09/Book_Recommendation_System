@@ -17,16 +17,19 @@
         .list-group-scrollable::-webkit-scrollbar {
             width: 10px; /* Adjust the width as needed */
             background-color: #f1f1f1; /* Track color */
+            border-radius: 10px;
         }
 
         /* Style the scrollbar thumb */
         .list-group-scrollable::-webkit-scrollbar-thumb {
-            background-color: #888; /* Thumb color */
+            background-color: #818181; /* Thumb color */
+            border-radius: 10px;
         }
 
         /* Style the scrollbar thumb on hover */
         .list-group-scrollable::-webkit-scrollbar-thumb:hover {
             background-color: #555; /* Thumb color on hover */
+            border-radius: 10px;
         }
     </style>
 </head>
@@ -61,16 +64,16 @@
             {% for book, description, author, publishDate, score in recommendations %}
             <li class="list-group-item">
                 <div class="d-flex flex-column align-items-center justify-content-center">
-                        <div class="list-group list-group-checkable d-grid gap-2 border-0 list-group-scrollable" style="width: 650px;height: 800px;">                     
+                        <div class="list-group list-group-checkable d-grid gap-2 border-0 list-group-scrollable" style="position: relative;width: 650px;height: 800px;">                     
                         <label class="list-group-item rounded-3 py-3" for="listGroupCheckableRadios1">
-                            <img src="{{ url_for('static', filename='imgs/gray.png') }}" width="600px" height="400px" style="margin: 0;"/>
+                            <img src="{{ url_for('static', filename='imgs/gray.png') }}" width="613px" height="400px" style="margin: 0;"/>
                             <h3 style="margin-top: 10px;">{{ book }}, {{ author }} ({{ publishDate }}) </h3>
                             <span class="d-block small opacity-50" style=" max-width: 600px; overflow: hidden; text-overflow: ellipsis;">
-                                <p>{{ description }}</p>
+                                <p> {{ description }}</p>
                             </span>
                             <div class="text-center">
                                 <br>
-                                <button type="button" class="btn btn-outline-dark">
+                                <button type="button" class="btn btn-outline-dark" style="position: absolute; bottom: 25px;">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
                                         <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.950l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
                                     </svg>
@@ -80,8 +83,6 @@
                         </label>
                     </div>
                 </div>  
-                <h3></h3>
-                <p></p>
             </li>
             {% endfor %} 
             </div>
