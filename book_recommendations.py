@@ -71,7 +71,8 @@ def recommend():
     if not recommendations:
         return render_template('book_not_found.html')
     
-    return render_template('recommendations.html', recommendations=recommendations)
+    return render_template('recommendations.html', recommendations=recommendations, book_title=book_title)
+
 
 #Starts web server, and web application becomes accesible in the specified port.
 if __name__ == '__main__':
