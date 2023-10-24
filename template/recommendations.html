@@ -22,21 +22,24 @@
         <br>
         <br>
         <br>
-        <h1 class="display-5 fw-bold text-body-emphasis">Books similar to {{ book_title }}</h1>
-
+        <h1 class="display-5 fw-bold text-body-emphasis">Books similar to </h1>
+        <h2>{{ book_title }}</h2>
     </div>
     <div class="d-flex flex-column flex-md-row p-4 gap-4 py-md-5 align-items-center justify-content-center">
         <div class="row">
-            {% for book, description, author, publishDate, score in recommendations %}
+            {% for book, author, similarity in recommendations %}
             <div class="col-md-4">
-                <div class="list-group-item" style="margin-bottom: 45px;">
+                <div class="list-group-item" style="margin-bottom: 65px;">
                     <div class="d-flex flex-column align-items-center justify-content-center">
-                        <div class="list-group list-group-checkable d-grid gap-2 border-0" style="position: relative; width: 550px; height: 400px;">
+                        <div class="list-group list-group-checkable d-grid gap-2 border-0" style="position: relative; width: 550px; height: 500px;">
                             <label class="list-group-item rounded-3 py-3" for="listGroupCheckableRadios1">
-                                <img src="{{ url_for('static', filename='imgs/gray.png') }}" width="515px" height="300px" style="margin: 0;">
+                                <div style="display: flex; justify-content: center; align-items: center;">
+                                    <img src="{{ url_for('static', filename='imgs/book.jpg') }}"width="400px" height="315px" style="margin: 0;">
+                                </div>
                                 <h3 style="margin-top: 10px; font-size: x-large;">{{ book }}</h3>
                                 <span class="d-block small opacity-50" style="max-width: 500px; overflow: hidden; text-overflow: ellipsis;">
                                     <p style="font-size: large;">{{ author }}</p>
+                                    <p style="font-size: large;">{{ similarity }}</p>
                                 </span>
                                 <div class="text-center">
                                 </div>
