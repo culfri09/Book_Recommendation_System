@@ -37,6 +37,15 @@ def get_recommendations(book_title, num_recommendations=6):
     recommended_books = [(df['title'][rec[0]], df['description'][rec[0]], df['author'][rec[0]], df['publishDate'][rec[0]], rec[1]) for rec in recommendations] #Transforms the numbers of the recommendations into strings and adds them to recommendation_books list: book title + description + author + publish date
     return recommended_books 
 
+def get_autocomplete_suggestions(query):
+    # Filter book titles based on the user's query
+    matching_titles = df[df['title'].str.contains(query, case=False, na=False)]['title'].tolist()
+
+    # Limit the number of suggestions to a reasonable amount (e.g., 10)
+    suggestions = matching_titles[:10]  # Adjust the number as needed
+
+    return suggestions
+
 '''
 #---Flask integration---
 '''
@@ -48,7 +57,12 @@ app = Flask(__name__, template_folder='./template') #Creates a Flask application
 def index():
     return render_template('index.html')
 
-#Loads recommendation page when user inputs a recommendation.
+@app.route('/autocomplete', methods=['POST'])
+def autocomplete():
+    query = request.form['query']
+    suggestions = get_autocomplete_suggestions(query)
+    return jsonify(suggestions)
+
 @app.route('/recommend', methods=['POST'])
 def recommend():
     book_title = request.form['book_title']
