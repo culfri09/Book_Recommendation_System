@@ -67,6 +67,10 @@ def autocomplete():
 def recommend():
     book_title = request.form['book_title']
     recommendations = get_recommendations(book_title)
+
+    if not recommendations:
+        return render_template('book_not_found.html')
+    
     return render_template('recommendations.html', recommendations=recommendations)
 
 #Starts web server, and web application becomes accesible in the specified port.
