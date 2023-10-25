@@ -27,27 +27,25 @@
     </div>
     <div class="d-flex flex-column flex-md-row p-4 gap-4 py-md-5 align-items-center justify-content-center">
         <div class="row">
-            {% for book, author, similarity in recommendations %}
-            <div class="col-md-4">
-                <div class="list-group-item" style="margin-bottom: 65px;">
-                    <div class="d-flex flex-column align-items-center justify-content-center">
-                        <div class="list-group list-group-checkable d-grid gap-2 border-0" style="position: relative; width: 550px; height: 500px;">
-                            <label class="list-group-item rounded-3 py-3" for="listGroupCheckableRadios1">
-                                <div style="display: flex; justify-content: center; align-items: center;">
-                                    <img src="{{ url_for('static', filename='imgs/book.jpg') }}"width="400px" height="315px" style="margin: 0;">
-                                </div>
-                                <h3 style="margin-top: 10px; font-size: x-large;">{{ book }}</h3>
-                                <span class="d-block small opacity-50" style="max-width: 500px; overflow: hidden; text-overflow: ellipsis;">
-                                    <p style="font-size: large;">{{ author }}</p>
-                                    <p style="font-size: large;">{{ similarity }}</p>
-                                </span>
-                                <div class="text-center">
-                                </div>
-                            </label>
+            {% for recommendation in recommendations %}
+                <div class="col-md-4">
+                    <div class="list-group-item" style="margin-bottom: 65px;">
+                        <div class="d-flex flex-column align-items-center justify-content-center">
+                            <div class="list-group list-group-checkable d-grid gap-2 border-0" style="position: relative; width: 550px; height: 500px;">
+                                <label class="list-group-item rounded-3 py-3" for="listGroupCheckableRadios1">
+                                    <div style="display: flex; justify-content: center; align-items: center;">
+                                        <img src="{{ url_for('static', filename='imgs/book.jpg') }}" width="400px" height="315px" style="margin: 0;">
+                                    </div>
+                                    <h3 style="margin-top: 10px; font-size: x-large;">{{ recommendation['book'] }}</h3>
+                                    <span class="d-block small opacity-50" style="max-width: 500px; overflow: hidden; text-overflow: ellipsis;">
+                                        <p style="font-size: large;">{{ recommendation['author'] }}</p>
+                                        <span class="badge {{ recommendation['color'] }}" style="font-size: medium;">{{ recommendation['similarity'] }}</span>
+                                    </span>
+                                </label>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
             {% endfor %}
         </div>
     </div>   

@@ -71,7 +71,13 @@ def recommend():
     if not recommendations:
         return render_template('book_not_found.html')
     
-    return render_template('recommendations.html', recommendations=recommendations, book_title=book_title)
+    # Prepare the recommendations with color information
+    colored_recommendations = []
+    for book, author, similarity in recommendations:
+        color = 'text-bg-success' if similarity >= 70 else ('text-bg-warning' if similarity >= 30 else 'text-bg-danger')
+        colored_recommendations.append({'book': book, 'author': author, 'similarity': similarity, 'color': color})
+
+    return render_template('recommendations.html', recommendations=colored_recommendations, book_title=book_title)
 
 
 #Starts web server, and web application becomes accesible in the specified port.
