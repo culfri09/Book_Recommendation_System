@@ -45,7 +45,6 @@ predictions = model.test(testset)
 
 # Evaluate the model
 rmse = accuracy.rmse(predictions)
-mae = accuracy.mae(predictions)
 
 print("Collaborative Filtering Results:")
 print(f"RMSE: {rmse}")
